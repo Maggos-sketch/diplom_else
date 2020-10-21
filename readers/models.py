@@ -13,7 +13,7 @@ class Reader(models.Model):
     name = models.CharField("Имя", max_length=200, help_text="Введите имя")
     middle_name = models.CharField("Отчество", max_length=200, help_text="Введите отчество(при наличии)", blank=True)
     classroom = models.ForeignKey(Learn_class, on_delete=models.SET_NULL, null=True)
-    mail = models.CharField("Почта", max_length=300, unique=True)
+    mail = models.EmailField("Почта", max_length=300, unique=True)
 
     def __str__(self):
-        return '%s, %s' % (self.surname, self.name)
+        return '%s %s' % (self.surname, self.name)
